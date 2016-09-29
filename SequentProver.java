@@ -58,34 +58,29 @@ public class SequentProver {
         }
     }
 
-    public static void main(String[] args) {
-        try {
-            Scanner in = new Scanner(System.in);
+    public static void main(String[] args) throws Exception {
+        Scanner in = new Scanner(System.in);
 
-            Deque<Character> input = new ArrayDeque<Character>();
+        Deque<Character> input = new ArrayDeque<Character>();
 
-            while (in.hasNextLine()) {
-                String line = in.nextLine();
+        while (in.hasNextLine()) {
+            String line = in.nextLine();
 
-                line = line.replaceAll("[\\\\n\\s]+", "");
+            line = line.replaceAll("[\\\\n\\s]+", "");
 
-                for (int i=0; i<line.length(); i++) {
-                    input.add(line.charAt(i));
-                }
+            for (int i=0; i<line.length(); i++) {
+                input.add(line.charAt(i));
             }
-
-            Formula f = parse(input);
-
-            if (input.size() > 0) {
-                throw new Exception("parse error");
-            }
-
-            System.out.println(f);
-
-            // Run theorem prover on sequent made from formula `f` here.
-
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
         }
+
+        Formula f = parse(input);
+
+        if (input.size() > 0) {
+            throw new Exception("parse error");
+        }
+
+        System.out.println(f);
+
+        // Run theorem prover on sequent made from formula `f` here.
     }
 }
