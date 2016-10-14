@@ -66,7 +66,7 @@ public class SequentProver {
         while (in.hasNextLine()) {
             String line = in.nextLine();
 
-            line = line.replaceAll("[\\\\n\\s]+", "");
+            line = line.replaceAll("\\s+", "");
 
             for (int i=0; i<line.length(); i++) {
                 input.add(line.charAt(i));
